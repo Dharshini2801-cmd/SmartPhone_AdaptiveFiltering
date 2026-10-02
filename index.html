@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Signal Processing with Smartphone - Interactive Adaptive Noise Reduction Demonstration"
+    >
+
+    <title>
+        Signal Processing with Smartphone | Adaptive Voice Lab
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="top-header">
+
+    <div class="college-logo">
+
+        <img
+            src="image.png"
+            alt="Thiagarajar College of Engineering"
+        >
+
+    </div>
+
+    <div class="course-header">
+
+        <div class="course-code">
+            22ECPG0
+        </div>
+
+        <h1>
+            SIGNAL PROCESSING WITH SMARTPHONE
+        </h1>
+
+        <p>
+            Interactive Real-Time Digital Signal Processing Demonstration
+        </p>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     COURSE INFORMATION
+===================================================== -->
+
+<section class="course-info">
+
+    <div class="info-card">
+
+        <span class="info-label">
+            COURSE CODE
+        </span>
+
+        <strong>
+            22ECPG0
+        </strong>
+
+    </div>
+
+
+    <div class="info-card">
+
+        <span class="info-label">
+            CATEGORY
+        </span>
+
+        <strong>
+            PSE
+        </strong>
+
+    </div>
+
+
+    <div class="info-card">
+
+        <span class="info-label">
+            L T P
+        </span>
+
+        <strong>
+            2 0 2
+        </strong>
+
+    </div>
+
+
+    <div class="info-card">
+
+        <span class="info-label">
+            CREDITS
+        </span>
+
+        <strong>
+            3
+        </strong>
+
+    </div>
+
+
+    <div class="info-card">
+
+        <span class="info-label">
+            MODE
+        </span>
+
+        <strong>
+            TE + Practical
+        </strong>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="main-container">
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-badge">
+            🎧 LIVE DSP EXPERIMENT
+        </div>
+
+
+        <h2>
+            Can Signal Processing
+            <span>
+                Clean Your Voice?
+            </span>
+        </h2>
+
+
+        <p>
+
+            Record your voice in a noisy environment,
+            process the signal using digital noise reduction,
+            and compare the original and enhanced audio.
+
+        </p>
+
+
+        <div class="hero-flow">
+
+            <div>
+                🎤
+                <span>Capture</span>
+            </div>
+
+            <div class="flow-arrow">
+                →
+            </div>
+
+            <div>
+                📊
+                <span>Sample</span>
+            </div>
+
+            <div class="flow-arrow">
+                →
+            </div>
+
+            <div>
+                🧠
+                <span>Process</span>
+            </div>
+
+            <div class="flow-arrow">
+                →
+            </div>
+
+            <div>
+                🔊
+                <span>Enhance</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         EXPERIMENT
+    ================================================== -->
+
+    <section class="card">
+
+
+        <div class="section-heading">
+
+            <div class="step">
+                01
+            </div>
+
+            <div>
+
+                <h3>
+                    Record Your Signal
+                </h3>
+
+                <p>
+                    Capture speech together with background noise.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="instruction-box">
+
+            <div class="instruction-icon">
+                💡
+            </div>
+
+            <div>
+
+                <strong>
+                    For the best result
+                </strong>
+
+                <p>
+                    Keep a fan, AC or classroom noise in the background.
+                    Stay silent for the first 2 seconds, then speak normally.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- RECORD AREA -->
+
+        <div class="record-area">
+
+
+            <div
+                id="micIndicator"
+                class="mic-indicator"
+            >
+
+                <div class="mic-icon">
+                    🎙️
+                </div>
+
+                <span id="recordStatus">
+                    Ready to record
+                </span>
+
+            </div>
+
+
+            <div
+                id="timer"
+                class="timer"
+            >
+                00:00
+            </div>
+
+
+            <button
+                id="recordButton"
+                class="main-button"
+            >
+
+                <span id="recordIcon">
+                    ●
+                </span>
+
+                <span id="recordText">
+                    Start Recording
+                </span>
+
+            </button>
+
+
+            <p
+                id="permissionText"
+                class="small-text"
+            >
+                Microphone access is required for recording.
+            </p>
+
+
+        </div>
+
+
+
+        <!-- ORIGINAL AUDIO -->
+
+        <div
+            id="originalSection"
+            class="audio-card hidden"
+        >
+
+            <div class="audio-title">
+
+                <span class="red-label">
+                    ORIGINAL
+                </span>
+
+                <div>
+
+                    <strong>
+                        Voice + Background Noise
+                    </strong>
+
+                    <small>
+                        Raw microphone recording
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <audio
+                id="originalAudio"
+                controls
+            ></audio>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         PROCESSING
+    ================================================== -->
+
+    <section class="card">
+
+
+        <div class="section-heading">
+
+            <div class="step">
+                02
+            </div>
+
+            <div>
+
+                <h3>
+                    Adaptive Noise Reduction
+                </h3>
+
+                <p>
+                    Estimate the noise spectrum and suppress unwanted components.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ALGORITHM -->
+
+        <div class="algorithm-box">
+
+            <div class="algorithm-icon">
+                🧠
+            </div>
+
+            <div>
+
+                <strong>
+                    Digital Signal Processing
+                </strong>
+
+                <p>
+                    The first portion of the recording is used to
+                    estimate the background-noise spectrum.
+                    The algorithm then reduces noise-dominated
+                    frequency components while preserving speech.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- STRENGTH -->
+
+        <div class="control-group">
+
+            <div class="control-header">
+
+                <label for="strengthSlider">
+                    Noise Reduction Strength
+                </label>
+
+                <strong id="strengthValue">
+                    75%
+                </strong>
+
+            </div>
+
+
+            <input
+                id="strengthSlider"
+                type="range"
+                min="30"
+                max="95"
+                value="75"
+            >
+
+
+            <div class="slider-labels">
+
+                <span>
+                    Natural
+                </span>
+
+                <span>
+                    Strong
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <button
+            id="processButton"
+            class="process-button"
+            disabled
+        >
+
+            ⚙️
+            Process Signal
+
+        </button>
+
+
+
+        <!-- PROCESSING STATUS -->
+
+        <div
+            id="processingBox"
+            class="processing-box hidden"
+        >
+
+            <div class="loader"></div>
+
+            <div>
+
+                <strong>
+                    Processing signal...
+                </strong>
+
+                <p>
+                    Analyzing frequency components and reducing noise.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- RESULT -->
+
+        <div
+            id="resultSection"
+            class="hidden"
+        >
+
+
+            <div class="result-heading">
+
+                <span class="green-label">
+                    PROCESSED
+                </span>
+
+                <h3>
+                    Enhanced Voice
+                </h3>
+
+                <p>
+                    Listen to the difference.
+                </p>
+
+            </div>
+
+
+            <div class="audio-card processed">
+
+                <audio
+                    id="processedAudio"
+                    controls
+                ></audio>
+
+
+                <div class="result-meter">
+
+                    <div class="meter-heading">
+
+                        <span>
+                            Noise suppression
+                        </span>
+
+                        <strong id="resultText">
+                            Enhanced
+                        </strong>
+
+                    </div>
+
+
+                    <div class="meter">
+
+                        <div
+                            id="meterFill"
+                            class="meter-fill"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         SIGNAL FLOW
+    ================================================== -->
+
+    <section class="card">
+
+
+        <div class="section-heading">
+
+            <div class="step">
+                03
+            </div>
+
+            <div>
+
+                <h3>
+                    What Happened to the Signal?
+                </h3>
+
+                <p>
+                    The signal-processing view
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="signal-equation">
+
+
+            <div class="signal speech">
+                Speech
+            </div>
+
+
+            <span>
+                +
+            </span>
+
+
+            <div class="signal noise">
+                Noise
+            </div>
+
+
+            <span>
+                =
+            </span>
+
+
+            <div class="signal noisy">
+                Noisy Signal
+            </div>
+
+
+            <span>
+                →
+            </span>
+
+
+            <div class="signal clean">
+                Enhanced Signal
+            </div>
+
+
+        </div>
+
+
+
+        <div class="dsp-flow">
+
+
+            <div class="dsp-step">
+
+                <span>
+                    1
+                </span>
+
+                <strong>
+                    Sampling
+                </strong>
+
+                <p>
+                    Continuous sound is represented as digital samples.
+                </p>
+
+            </div>
+
+
+            <div class="dsp-step">
+
+                <span>
+                    2
+                </span>
+
+                <strong>
+                    Frame Processing
+                </strong>
+
+                <p>
+                    Audio is divided into short-time frames.
+                </p>
+
+            </div>
+
+
+            <div class="dsp-step">
+
+                <span>
+                    3
+                </span>
+
+                <strong>
+                    Frequency Analysis
+                </strong>
+
+                <p>
+                    Noise-dominated frequency components are identified.
+                </p>
+
+            </div>
+
+
+            <div class="dsp-step">
+
+                <span>
+                    4
+                </span>
+
+                <strong>
+                    Adaptive Reduction
+                </strong>
+
+                <p>
+                    Unwanted components are attenuated.
+                </p>
+
+            </div>
+
+
+            <div class="dsp-step">
+
+                <span>
+                    5
+                </span>
+
+                <strong>
+                    Reconstruction
+                </strong>
+
+                <p>
+                    The enhanced signal is converted back to audio.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="formula">
+
+            <span>
+                Noisy Signal
+            </span>
+
+            <b>
+                −
+            </b>
+
+            <span>
+                Estimated Noise
+            </span>
+
+            <b>
+                ≈
+            </b>
+
+            <strong>
+                Enhanced Speech
+            </strong>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         COURSE CONNECTION
+    ================================================== -->
+
+    <section class="card course-card">
+
+
+        <div class="section-heading">
+
+            <div class="step">
+                04
+            </div>
+
+            <div>
+
+                <h3>
+                    Connection With Your Course
+                </h3>
+
+                <p>
+                    22ECPG0 — Signal Processing with Smartphone
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="course-grid">
+
+
+            <div>
+                <span>
+                    CO1
+                </span>
+
+                <strong>
+                    Smartphone Tools
+                </strong>
+
+                <p>
+                    Smartphone as a signal-processing platform.
+                </p>
+            </div>
+
+
+            <div>
+                <span>
+                    CO2
+                </span>
+
+                <strong>
+                    Sampling
+                </strong>
+
+                <p>
+                    Audio acquisition and frame-based processing.
+                </p>
+            </div>
+
+
+            <div>
+                <span>
+                    CO3
+                </span>
+
+                <strong>
+                    FIR / IIR
+                </strong>
+
+                <p>
+                    Digital filtering and finite-word effects.
+                </p>
+            </div>
+
+
+            <div>
+                <span>
+                    CO4
+                </span>
+
+                <strong>
+                    Adaptive Filtering
+                </strong>
+
+                <p>
+                    Noise estimation and signal enhancement.
+                </p>
+            </div>
+
+
+            <div>
+                <span>
+                    CO5
+                </span>
+
+                <strong>
+                    Optimization
+                </strong>
+
+                <p>
+                    Efficient real-time signal processing.
+                </p>
+            </div>
+
+
+            <div>
+                <span>
+                    CO6
+                </span>
+
+                <strong>
+                    MATLAB → Smartphone
+                </strong>
+
+                <p>
+                    Implementing DSP algorithms on mobile platforms.
+                </p>
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         COURSE DESCRIPTION
+    ================================================== -->
+
+    <section class="card">
+
+
+        <div class="section-heading">
+
+            <div class="step">
+                05
+            </div>
+
+            <div>
+
+                <h3>
+                    Course Preamble
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <p class="preamble">
+
+            This course is offered as a follow-up to
+            <b>Signals and Systems</b> and
+            <b>Discrete Time Signal Processing</b>.
+            It bridges the gap between signal-processing
+            theory and implementation by using smartphones
+            as practical platforms for running signal-processing
+            algorithms.
+
+        </p>
+
+
+        <div class="prerequisite">
+
+            <strong>
+                Prerequisite
+            </strong>
+
+            <span>
+                NIL
+            </span>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         FINAL MESSAGE
+    ================================================== -->
+
+    <section class="final-card">
+
+        <div class="final-icon">
+            🎧
+        </div>
+
+
+        <span class="final-tag">
+            EXPERIENCE DSP
+        </span>
+
+
+        <h2>
+            You didn't just learn
+            signal processing.
+        </h2>
+
+
+        <p>
+            You experienced it.
+        </p>
+
+
+        <div class="final-flow">
+
+            Capture
+            <span>→</span>
+            Sample
+            <span>→</span>
+            Analyze
+            <span>→</span>
+            Filter
+            <span>→</span>
+            Enhance
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <strong>
+        22ECPG0 — SIGNAL PROCESSING WITH SMARTPHONE
+    </strong>
+
+    <p>
+        Interactive Digital Signal Processing Demonstration
+    </p>
+
+    <p>
+        Audio processing is performed locally in the browser.
+    </p>
+
+</footer>
+
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
